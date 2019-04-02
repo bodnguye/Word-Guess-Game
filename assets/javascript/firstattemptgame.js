@@ -13,12 +13,7 @@ var death = 0;          // The loss count.
 var ammo = 8;          // The remaining guesses left. 
 var missedShots = [];   // The wrong letters guessed
 var healthBar = [];     // The array for the length of the highValueTarget.
-var position = [];
-var shotsFired = [];
-
-// Sound effects
-var gunFire = new Audio("./assets/sounds/assaultrifle.wav");
-var themeSong = new Audio("./assets/sounds/halo2.mp3")
+var positios = [];
 
 var highValueTarget = targetListArray[Math.floor(Math.random() * targetListArray.length)];
 
@@ -43,6 +38,7 @@ for (var i = 0; i < highValueTarget.length; i++) {      // loop for the length o
     highValueTargetWord += healthBar[i];               // += operator can also be used to concatenate (add) strings 
     }                                                  // without the unneccesary commas (.).
 
+    console.log("check: " + highValueTargetWord);
     console.log("HEALTHBAR: " + healthBar);
     // console.log("healtBar[i]: " + healthBar[i]);
 }
@@ -54,7 +50,6 @@ document.onkeyup = function(event) {
     // Determines which key was pressed is set to lower case.
     // var userGuess = String.fromCharCode(event.keyCode).toUpperCase();
     var shotsFired = event.key.toUpperCase();
-    gunFire.play();
 
     // http://keycodes.atjayjo.com/#charcode
     // This if statement should only allow the keycode 65 to 90 (A-Z)
@@ -87,20 +82,28 @@ document.onkeyup = function(event) {
              startMission();
 
              console.log("HOO: " + healthBar[position[i]])
-            }
-        }
     }
+}
+
+    }
+    //   else  {
+    //       missedShots.push(shotsFired);
+    //     ammo--;
+    // }
     
 
     // This logic determines the outcome of the game (kill/death), and increments the appropriate number.
-     var correctWord = document.getElementById("high-value-target-text").innerHTML;
+    var correctWord = document.getElementById("high-value-target-text").innerHTML;
     if (correctWord.indexOf("_") === -1) {
         kill++;
         newMission();
     } 
 
+   
+
     if (ammo === 0) {
         death++;
+        // var highValueTarget = targetListArray[Math.floor(Math.random() * targetListArray.length)];
         newMission();
     }
 
@@ -113,21 +116,19 @@ document.onkeyup = function(event) {
 };
 
 // Function that reset ammo and missedShots after a kill or death. It will also reset the highValueTarget.
-    function newMission() {
+ newMission = function() {
     ammo = 8;
     missedShots = [];
     healthBar = [];
     highValueTarget = targetListArray[Math.floor(Math.random() * targetListArray.length)];
+
     startMission();
 };
 
+// var compareLetter = function(letter) {
+//     var letter = [];
+//     for (var i = 0; i < highValueTarget.length; i++) {
+
+//     }
+
 startMission();
-
-document.getElementById("clickStart").addEventListener("click", clickStart);
-
-function clickStart() {
-    themeSong.play();
-  document.getElementById("clickStart").innerHTML = "";
-  document.getElementById("anykey").src = "https://fontmeme.com/permalink/190402/e03dc27e68f48354951677dbc59ef7fc.png";
-  document.getElementById("finish").src = "https://fontmeme.com/permalink/190402/c0286d3ef271bcab8fa9c0b2ec1331a8.png";
-}

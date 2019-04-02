@@ -25,3 +25,21 @@ h1 {
     font-size: 64px;
     text-align: center;
 }
+
+#anykey {
+    position: relative;
+    right: 31%;
+    top: 73%;
+}
+
+#finish {
+    position: relative;
+    top:78%;
+    right:20%;
+}
+
+#clickStart {
+    position: relative;
+    right: 21%;
+    top: 85%;
+}
