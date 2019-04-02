@@ -21,9 +21,12 @@ body, html {
     border: 3px solid red;
 }
 
-h1 {
-    font-size: 64px;
-    text-align: center;
+#screen {
+margin-top:3%;
+}
+
+header {
+ padding-top: 10px;
 }
 
 #anykey {
@@ -42,4 +45,30 @@ h1 {
     position: relative;
     right: 21%;
     top: 85%;
+}
+
+#menu {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 25px;
+    color:rgb(147,163,189);
+    background-color: rgb(10,28,55,0.75);
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+#kd {
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   font-size: 25px;
+}
+
+#skull, #sword {
+    height: 20px;
+    width:20px;
+    position: absolute;
+    top:8px;
+    
+}
+
+#death-count-text, #kill-count-text {
+    padding-left: 25px;
 }

@@ -1,5 +1,6 @@
 // Creates array that lists all the high Value Target.
-var targetListArray = [ "MASTER CHIEF", "ARBITOR", "SERGEANT JOHNSON", "ORACLE", "GRAVEMIND"];
+var targetListArray = [ "MASTER CHIEF", "ARBITOR", "SERGEANT JOHNSON", "ORACLE", "GRAVEMIND", "CORTANA", "PROPHET OF TRUTH",
+                        "GRUNTS", "ELITES","HUNTERS","JACKALS", "BRUTES", "MARINES", "CAPTAIN KEYES", "SHIPMASTER", "SPARTANS"];
 
 var highValueTargetWordText = document.getElementById("high-value-target-text");
 var killText = document.getElementById("kill-count-text");
@@ -18,9 +19,12 @@ var shotsFired = [];
 
 // Sound effects
 var gunFire = new Audio("./assets/sounds/assaultrifle.wav");
-var themeSong = new Audio("./assets/sounds/halo2.mp3")
+var themeSong = new Audio("./assets/sounds/halo2.mp3");
+var roundOver = new Audio("./assets/sounds/round_over.wav");
 
 var highValueTarget = targetListArray[Math.floor(Math.random() * targetListArray.length)];
+// var highValueTargetIndex = highValueTarget[i];
+// console.log = (highValueTarget);
 
 
 function startMission() {
@@ -101,6 +105,7 @@ document.onkeyup = function(event) {
 
     if (ammo === 0) {
         death++;
+        roundOver.play();
         newMission();
     }
 
@@ -127,6 +132,7 @@ document.getElementById("clickStart").addEventListener("click", clickStart);
 
 function clickStart() {
     themeSong.play();
+    themeSong.loop = true;
   document.getElementById("clickStart").innerHTML = "";
   document.getElementById("anykey").src = "https://fontmeme.com/permalink/190402/e03dc27e68f48354951677dbc59ef7fc.png";
   document.getElementById("finish").src = "https://fontmeme.com/permalink/190402/c0286d3ef271bcab8fa9c0b2ec1331a8.png";
