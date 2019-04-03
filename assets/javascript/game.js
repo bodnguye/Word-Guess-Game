@@ -21,6 +21,7 @@ var shotsFired = [];
 var gunFire = new Audio("./assets/sounds/assaultrifle.wav");
 var themeSong = new Audio("./assets/sounds/halo2.mp3");
 var roundOver = new Audio("./assets/sounds/round_over.wav");
+var vipKilled = new Audio("./assets/sounds/vip_killed.wav");
 
 var highValueTarget = targetListArray[Math.floor(Math.random() * targetListArray.length)];
 // var highValueTargetIndex = highValueTarget[i];
@@ -100,6 +101,7 @@ document.onkeyup = function(event) {
      var correctWord = document.getElementById("high-value-target-text").innerHTML;
     if (correctWord.indexOf("_") === -1) {
         kill++;
+        vipKilled.play();
         newMission();
     } 
 
